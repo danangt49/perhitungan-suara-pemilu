@@ -1,0 +1,874 @@
+/* Resetting default margins and paddings */
+body, h1, h2, p, form, ul, li {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 1) 0%, rgba(150, 0, 0, 1) 70%); /* Red to dark red gradient */
+}
+
+/* Header Styles */
+header {
+    background-color: #900; /* Dark red background for the header */
+    color: white;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky; /* Makes the header stick to the top */
+    top: 0;
+    z-index: 1; /* Ensures header is on top of other elements */
+    padding: 10px 5px; /* Reduced padding for header */
+    font-size: 1em; /* Smaller font size for header text */
+    position: relative;
+}
+
+/* Adding white line below header */
+header::after {
+    content: "";
+    display: block;
+    height: 5px; /* Height of the white line */
+    background-color: white; /* White line color */
+    position: absolute;
+    bottom: -5px; /* Position below the header */
+    left: 0;
+    width: 100%; /* Full width of the header */
+    z-index: -1; /* Place below the header content */
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center; /* Center the navigation links horizontally */
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Default: show the menu horizontally */
+    flex-wrap: wrap; /* Allows wrapping of navigation items */
+    justify-content: center; /* Center the navigation links horizontally */
+    width: 100%; /* Ensure the UL takes the full width */
+    background-color: #900; /* Match background color with header */
+}
+
+nav ul.hidden {
+    display: none;
+}
+
+nav ul.show {
+    display: flex; /* Show the menu items when toggled */
+    flex-direction: column; /* Ensure vertical stacking of items */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px; /* Reduced padding for navigation links */
+    display: block;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+/* Active Link Styles */
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Highlight active link */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Hamburger Menu Styles */
+.menu-toggle {
+    display: none;
+    background-color: #900;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+/* Main Container Styles */
+main {
+    flex: 1; /* Expands to fill available space */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header Image Styles */
+.header-image {
+    display: flex;
+    justify-content: space-between; /* Spread images to left, center, and right */
+    align-items: center;
+    margin-bottom: 30px; /* Increased margin below header image */
+    padding: 10px; /* Padding for header image section */
+}
+
+/* Adjusting the size of the images within header-image */
+.header-image img {
+    height: auto;
+    max-height: 60px; /* Further reduce height for mobile devices */
+    max-width: 30%; /* Constrain images to 30% of the header container width */
+    padding: 5px; /* Padding around images */
+    object-fit: contain; /* Ensure images are contained properly */
+}
+
+/* Content Section Styles */
+.content-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px; /* Space between items */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center content horizontally */
+    padding: 20px; /* Padding for content section */
+    margin: 20px 0; /* Margin above and below the content section */
+    box-sizing: border-box;
+}
+
+/* Login Container Styles */
+.login-container {
+    flex: 1 1 300px; /* Flexible width with a minimum of 300px */
+    max-width: 400px; /* Max width for the login container */
+    padding: 10px; /* Padding for login container */
+}
+
+.login-section {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 10px; /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 20px; /* Padding inside the box */
+    width: 100%; /* Full width of container */
+    box-sizing: border-box;
+}
+
+.login-section h2 {
+    margin-bottom: 20px;
+    color: #900; /* Dark red color for the heading */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #333; /* Darker text color for better readability */
+}
+
+form input[type="text"],
+form input[type="password"] {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 12px;
+    background-color: #900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button:hover {
+    background-color: #c00;
+}
+
+/* Map Image Styles */
+.map-image {
+    flex: 2 1 800px; /* Adjusted to provide more space while still being responsive */
+    text-align: center;
+    margin-bottom: 20px; /* Margin below map image */
+    max-width: 100%; /* Ensure the container does not exceed the viewport width */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.map-image img {
+    width: 100%; /* Ensure the image scales to the container width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 65vh; /* Adjusted to 80% of viewport height for a slightly smaller display */
+    object-fit: contain; /* Ensure the image fits within the container */
+}
+
+/* Map Info Styles */
+.map-info {
+    flex: 1 1 300px;
+    padding: 10px; /* Padding around map info */
+    /* background: rgba(255, 255, 255, 0.8); Slightly transparent white background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* DateTime Container Styles */
+.datetime-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%; /* Full width for date-time container */
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+/* Media Query for Tablets */
+@media (max-width: 1024px) {
+    .header-image img {
+        max-height: 80px;
+    }
+
+    .content-section {
+        padding: 15px;
+        margin: 15px 0; /* Adjusted margin for tablets */
+    }
+
+    .login-container, .map-image, .map-info {
+        margin-bottom: 20px;
+    }
+
+    .map-image {
+        flex: 2 1 800px; /* Further adjust for tablets */
+        margin-bottom: 15px; /* Adjusted margin for tablets */
+    }
+
+    .map-image img {
+        max-height: 60vh; /* Adjusted maximum height for tablets */
+    }
+}
+
+/* Media Query for Phones */
+@media (max-width: 600px) {
+    .header-image {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-image img {
+        max-width: 100%;
+        margin-bottom: 10px; /* Adjusted margin for phones */
+    }
+
+    .menu-toggle {
+        display: block; /* Show the hamburger menu toggle */
+    }
+
+    nav ul {
+        display: none; /* Hide the navigation links by default */
+        position: absolute;
+        top: 50px; /* Position below the header */
+        left: 0;
+        width: 100%;
+        background-color: #900; /* Dark red background */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow effect */
+        z-index: 1;
+        flex-direction: column; /* Stack the items vertically */
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu items when toggled */
+    }
+
+    nav ul li {
+        width: 100%; /* Full width for each menu item */
+    }
+
+    nav ul li a {
+        padding: 15px; /* Increased padding for touch areas */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light separator */
+    }
+
+    .dropdown-content {
+        min-width: 100%;
+        left: 0;
+        top: 100%;
+    }
+
+    .dropdown-content a {
+        padding: 10px 15px;
+    }
+}
+
+/* Custom styles for specific pages */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/login-background.jpg') center/cover no-repeat;
+}
+
+.login-container {
+    max-width: 400px;
+    padding: 20px;
+    /* background: rgba(255, 255, 255, 0.9); */
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-container form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-container form button {
+    padding: 12px;
+    background-color: #900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.login-container form button:hover {
+    background-color: #c00;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+/* Gaya untuk tabel DataTable */
+#datatable {
+    background-color: #f9f9f9; /* Warna latar belakang tabel */
+    border-radius: 5px; /* Sudut membulat */
+    overflow: hidden; /* Menyembunyikan konten yang meluber dari sudut membulat */
+}
+
+#datatable thead th {
+    background-color: #900; /* Warna latar belakang header tabel */
+    color: white; /* Warna teks header tabel */
+}
+
+#datatable tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang baris genap */
+}
+
+#datatable tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Warna latar belakang baris ganjil */
+}
+
+#datatable tbody tr:hover {
+    background-color: #ddd; /* Warna latar belakang saat hover */
+}
+
+/* Container for the table and button */
+.table-container {
+    position: relative; /* Make container relative for absolute positioning of button */
+}
+
+/* Header styles for the table */
+.table-header {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+    margin-bottom: 10px; /* Space below the header */
+}
+
+/* Button styles */
+.add-button {
+    background-color: #a00505; /* Primary color for the button */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor pointer on hover */
+    font-size: 16px; /* Font size for the button */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.add-button:hover {
+    background-color: #940404; /* Darker shade on hover */
+}
+
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Maximum width of modal */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Footer */
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: black; /* Set title color to black */
+    margin-top: 0; /* Remove top margin */
+    padding-bottom: 2px;
+}
+
+
+/* DataTable Styles */
+.dataTables_wrapper .dataTables_length {
+    margin-bottom: 20px; /* Space below the "Show entries" element */
+}
+
+.dataTables_wrapper .dataTables_info {
+    margin-bottom: 20px; /* Space below the "Showing X to Y of Z entries" element */
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 20px; /* Space above the "Pagination" element */
+}
+
+/* Gaya untuk tbody tabel */
+#datatable tbody {
+    background-color: #000; /* Warna hitam */
+    color: #050505; /* Warna teks putih agar kontras dengan latar belakang hitam */
+}
+
+/* General Modal and Form Styling */
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding does not exceed the width */
+}
+
+form input[type="email"] {
+    background-color: #f9f9f9; /* Light background for email input */
+    font-size: 14px; /* Font size for better readability */
+}
+
+/* Button Styling */
+form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form input[type="number"] {
+    -moz-appearance: textfield; /* Remove the default number input styling in Firefox */
+    appearance: textfield; /* Remove the default number input styling */
+}
+
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove the spinner in Chrome */
+    margin: 0; /* Remove the spinner margin */
+}
+
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Gaya untuk elemen select */
+select {
+    background-color: #ffffff; /* Warna latar belakang select */
+    border: 1px solid #ced4da; /* Warna border */
+    border-radius: .25rem; /* Radius border */
+    color: #000000; /* Warna teks */
+    height: 38px; /* Tinggi select box */
+    padding: 6px 12px; /* Padding di dalam select */
+}
+
+/* Gaya untuk opsi di dalam select */
+select option {
+    color: #000000; /* Warna teks opsi */
+}
+
+/* CSS untuk badge */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.badge-admin {
+    background-color: #dc3545; /* Merah untuk Admin */
+}
+
+.badge-saksi {
+    background-color: #007bff; /* Biru untuk Saksi */
+}
+
+.badge-owner {
+    background-color: #28a745; /* Hijau untuk Caleg */
+}
+
+.content-section {
+    padding: 20px;
+}
+
+.alert-info {
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.dashboard-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.summary-box {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 30%;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.summary-box h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #444;
+}
+
+.summary-box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000; /* Set color of <p> to black */
+}
+
+.chart-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.chart-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style untuk canvas agar lebih besar */
+canvas {
+    max-width: 100%;
+    height: 500px; /* Atur tinggi diagram */
+    width: 100% !important; /* Pastikan canvas menggunakan lebar penuh */
+}
+
+.content-section {
+    padding: 20px;
+}
+.form-container {
+    border: 1px solid #ced4da; /* Bootstrap's border color */
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for better contrast */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+.form-group label {
+    font-weight: bold;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-control, .btn {
+    border-radius: 0.25rem; /* Rounded corners for inputs and buttons */
+}
+.btn-primary {
+    border: 1px solid #007bff; /* Ensure border color matches button */
+}
+
+.table-container h2 {
+    color: white; /* Mengubah warna teks menjadi putih */
+    padding: 10px; /* Menambahkan padding untuk jarak dari tepi */
+    border-radius: 5px; /* Menambahkan border-radius untuk sudut melengkung */
+    margin: 0; /* Menghapus margin default */
+}
+
+.container h2 {
+    color: white; /* Mengubah warna teks menjadi putih */
+    padding: 10px; /* Menambahkan padding untuk jarak dari tepi */
+    border-radius: 5px; /* Menambahkan border-radius untuk sudut melengkung */
+    margin: 0; /* Menghapus margin default */
+}
+
+.info-section {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.info-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.info-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-item i {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.info-item strong {
+    color: #333;
+}
+
+.info-item span {
+    color: #555;
+}
+
+.dashboard-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.summary-box {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.summary-box p {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.total-saksi {
+    background-color: #e0f7fa;
+    border-color: #b2ebf2;
+}
+
+.total-tps {
+    background-color: #f1f8e9;
+    border-color: #dcedc8;
+}
+
+.tps-terinput {
+    background-color: #fbe9e7;
+    border-color: #ffccbc;
+}
+
+.total-perolehan-suara {
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+}
+
+.terakhir-update-data {
+    background-color: #f3e5f5;
+    border-color: #e1bee7;
+}
+
+.admin-info {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.admin-info h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.admin-info p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
