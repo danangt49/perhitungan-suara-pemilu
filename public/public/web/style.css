@@ -12,12 +12,12 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background: radial-gradient(circle at center, rgba(255, 0, 0, 1) 0%, rgba(150, 0, 0, 1) 70%); /* Red to dark red gradient */
+    background: radial-gradient(circle at center, rgb(91, 4, 102) 0%, rgb(87, 2, 90) 70%); /* Red to dark red gradient */
 }
 
 /* Header Styles */
 header {
-    background-color: #900; /* Dark red background for the header */
+    background-color:rgb(91, 4, 102); /* Dark red background for the header */
     color: white;
     text-align: center;
     width: 100%;
@@ -58,7 +58,7 @@ nav ul {
     flex-wrap: wrap; /* Allows wrapping of navigation items */
     justify-content: center; /* Center the navigation links horizontally */
     width: 100%; /* Ensure the UL takes the full width */
-    background-color: #900; /* Match background color with header */
+    background-color:rgb(91, 4, 102); /* Match background color with header */
 }
 
 nav ul.hidden {
@@ -121,7 +121,7 @@ nav ul li a.active {
 /* Hamburger Menu Styles */
 .menu-toggle {
     display: none;
-    background-color: #900;
+    background-color: rgb(91, 4, 102);
     color: white;
     border: none;
     padding: 10px;
@@ -192,7 +192,7 @@ main {
 
 .login-section h2 {
     margin-bottom: 20px;
-    color: #900; /* Dark red color for the heading */
+    color: rgb(91, 4, 102); /* Dark red color for the heading */
     font-size: 1.5em;
     text-align: center;
 }
@@ -218,7 +218,7 @@ form input[type="password"] {
 
 form button {
     padding: 12px;
-    background-color: #900;
+    background-color: rgb(91, 4, 102);
     color: white;
     border: none;
     border-radius: 5px;
@@ -227,7 +227,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #c00;
+    background-color: rgb(91, 4, 102);
 }
 
 /* Map Image Styles */
@@ -314,7 +314,7 @@ form button:hover {
         top: 50px; /* Position below the header */
         left: 0;
         width: 100%;
-        background-color: #900; /* Dark red background */
+        background-color: rgb(99, 6, 99); /* Dark red background */
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow effect */
         z-index: 1;
         flex-direction: column; /* Stack the items vertically */
@@ -386,7 +386,7 @@ form button:hover {
 
 .login-container form button {
     padding: 12px;
-    background-color: #900;
+    background-color: rgb(83, 5, 128);
     color: white;
     border: none;
     border-radius: 5px;
@@ -395,7 +395,7 @@ form button:hover {
 }
 
 .login-container form button:hover {
-    background-color: #c00;
+    background-color: rgb(87, 4, 107);
 }
 
 /* Dropdown Styles */
@@ -446,7 +446,7 @@ form button:hover {
 }
 
 #datatable thead th {
-    background-color: #900; /* Warna latar belakang header tabel */
+    background-color: rgb(105, 0, 153); /* Warna latar belakang header tabel */
     color: white; /* Warna teks header tabel */
 }
 
