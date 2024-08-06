@@ -18,7 +18,7 @@ class UserController extends Controller
     // Menampilkan tampilan utama
     public function index()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             return view('saksi.show');
         }
     }
@@ -26,7 +26,7 @@ class UserController extends Controller
     // Mengambil data untuk DataTables
     public function json()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $data = User::where('role', 'saksi')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -43,7 +43,7 @@ class UserController extends Controller
     // Menyimpan data baru
     public function store(Request $request)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $request->validate([
                 'nama' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
@@ -84,7 +84,7 @@ class UserController extends Controller
     // Menampilkan data untuk diedit
     public function edit($id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $user = User::findOrFail($id);
             return response()->json($user);
         }
@@ -93,7 +93,7 @@ class UserController extends Controller
     // Memperbarui data yang sudah ada
     public function update(Request $request, $id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $request->validate([
                 'nama' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users,email,' . $id,
@@ -128,7 +128,7 @@ class UserController extends Controller
     // Menghapus data
     public function destroy($id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $user = User::findOrFail($id);
             $user->delete();
             return response()->json(['success' => 'Data Berhasil Dihapus']);
@@ -138,7 +138,7 @@ class UserController extends Controller
     // Mencetak semua data ke PDF
     public function print()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $all = User::where('role', 'saksi')->get();
             $pdf = Pdf::loadview('saksi.print', ['data' => $all]);
             return $pdf->download('Data_Saksi.pdf');

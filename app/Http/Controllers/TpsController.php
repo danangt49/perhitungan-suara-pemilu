@@ -18,7 +18,7 @@ class TpsController extends Controller
     // Menampilkan tampilan utama
     public function index()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             return view('tps.show');
         }
     }
@@ -26,7 +26,7 @@ class TpsController extends Controller
     // Mengambil data untuk DataTables
     public function json()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $data = Tps::get();
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -43,7 +43,7 @@ class TpsController extends Controller
     // Menyimpan data baru
     public function store(Request $request)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $request->validate([
                 'kode_tps' => 'required|string|max:255',
                 'no_tps' => 'required|string|max:255',
@@ -75,7 +75,7 @@ class TpsController extends Controller
     // Menampilkan data untuk diedit
     public function edit($id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $tps = Tps::findOrFail($id);
             return response()->json($tps);
         }
@@ -84,7 +84,7 @@ class TpsController extends Controller
     // Memperbarui data yang sudah ada
     public function update(Request $request, $id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $request->validate([
                 'kode_tps' => 'required|string|max:255',
                 'no_tps' => 'required|string|max:255',
@@ -108,7 +108,7 @@ class TpsController extends Controller
     // Menghapus data
     public function destroy($id)
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $tps = Tps::findOrFail($id);
             $tps->delete();
             return response()->json(['success' => 'Data Berhasil Dihapus']);

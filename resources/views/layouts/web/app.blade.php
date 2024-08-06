@@ -21,12 +21,9 @@
             <ul>
                 @if (Auth::check())
                     <li><a href="{{ url('/') }}" data-section="home">Home</a></li>
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'owner')
                         <li><a href="{{ url('tps') }}" data-section="tps">Data TPS</a></li>
                         <li><a href="{{ url('saksi') }}" data-section="saksi">Data Saksi</a></li>
-                        <li><a href="{{ url('perolehan-suara') }}" data-section="perolehan-suara">Perolehan
-                                Suara</a></li>
-                    @elseif (Auth::user()->role == 'owner')
                         <li><a href="{{ url('perolehan-suara') }}" data-section="perolehan-suara">Perolehan
                                 Suara</a></li>
                     @elseif (Auth::user()->role == 'saksi')

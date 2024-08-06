@@ -30,21 +30,15 @@ Route::get('data-kelurahan-options', [TpsController::class, 'getKelurahanOptions
 Route::get('data-tps-options', [TpsController::class, 'getTpsOptions']);
 Route::get('data-saksi-options', [TpsController::class, 'options']);
 
-// owner routes
-Route::middleware(['role:owner'])->group(function () {
-    Route::get('perolehan-suara/print', [PerolehanSuaraController::class, 'print']);
-    Route::get('perolehan-suara-json', [PerolehanSuaraController::class, 'json']);
-});
-
 // saksi routes
 Route::middleware(['role:saksi'])->group(function () {
     Route::get('input-perolehan-suara', [PerolehanSuaraController::class, 'input']);
     Route::post('/check-data-exists', [PerolehanSuaraController::class, 'checkDataExists']);
-    Route::post('perolehan-suara', [PerolehanSuaraController::class, 'store']);
+    Route::resource('perolehan-suara', PerolehanSuaraController::class);
 });
 
 // Admin routes
-Route::middleware(['role:admin'])->group(function () {
+Route::middleware(['role:admin' , 'role:owner'])->group(function () {
     Route::get('tps/print', [TpsController::class, 'print'])->name('tps.print');
     Route::resource('tps', TpsController::class);
     Route::get('tps-json', [TpsController::class, 'json']);

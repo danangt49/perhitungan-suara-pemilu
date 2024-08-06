@@ -11,7 +11,8 @@
         @if (Auth::check())
             @if (Gate::allows('isAdmin') || Gate::allows('isOwner'))
                 <div class="alert alert-info">
-                    Selamat Datang {{ Auth::user()->nama }} ....<br><br>
+                    Selamat Datang {{ Auth::user()->nama }} ....<br>
+                   Role : {{ Auth::user()->role }} <br><br>
                     <strong>Info:</strong> Halaman ini menampilkan data perolehan suara. Perbarui halaman untuk melihat data
                     terbaru. <br><br>
                     <div class="info-item">
@@ -28,7 +29,7 @@
                     </div>
                     <div class="info-item">
                         <i class="fas fa-building info-icon"></i>
-                        <strong>CALEG DPRD KAB/KOTA:</strong> <span> &nbsp; {{ $caleg->dapil }}</span>
+                        <strong>CALEG DPRD KAB/KOTA:</strong> <span> &nbsp; {{ $caleg->wilayah }}</span>
                     </div>
                 </div>
 
