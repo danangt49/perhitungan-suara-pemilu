@@ -1,17 +1,59 @@
 @extends('layouts.web.app')
 
 @section('css')
+    <style>
+        .dataTables_wrapper .dataTables_info {
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #fff;
+            margin: 0 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            background-color: #ffffff;
+            color: #fff;
+            cursor: not-allowed;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background-color: #41054d;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 @endsection
 
 @section('content')
     <section class="content-section">
         <div class="table-container">
             <h2>DATA TPS</h2>
-                <div class="table-header">
-                    <button id="addDataButton" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</button> &nbsp;
-                    &nbsp;
-                    <button id="printButton" class="btn btn-success"><i class="fas fa-print"></i> Print</button>
-                </div>
+            <div class="table-header">
+                <button id="addDataButton" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</button> &nbsp;
+                &nbsp;
+                <button id="printButton" class="btn btn-success"><i class="fas fa-print"></i> Print</button>
+            </div>
             <table id="datatable" class="table table-striped text-center"></table>
         </div>
 

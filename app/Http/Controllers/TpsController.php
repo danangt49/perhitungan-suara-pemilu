@@ -118,7 +118,7 @@ class TpsController extends Controller
     // Mencetak semua data ke PDF
     public function print()
     {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $all = Tps::all();
             $pdf = Pdf::loadView('tps.print', ['data' => $all]);
             return $pdf->download('Data_tps.pdf');

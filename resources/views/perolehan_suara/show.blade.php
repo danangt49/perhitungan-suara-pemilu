@@ -1,7 +1,48 @@
 @extends('layouts.web.app')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+        .dataTables_wrapper .dataTables_info {
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #fff;
+            margin: 0 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            background-color: #ffffff;
+            color: #fff;
+            cursor: not-allowed;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background-color: #41054d;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -101,15 +142,19 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <script>
-        $('#printButton').on('click', function() {
-            var kecamatan = $('#filter_kecamatan').val();
-            var kelurahan = $('#filter_kelurahan').val();
-            var kode_tps = $('#filter_kode_tps').val();
-            var url = "{{ url('perolehan-suara/print') }}";
-            window.open(`${url}?kecamatan=${kecamatan}&kelurahan=${kelurahan}&kode_tps=${kode_tps}`, '_blank');
+        document.getElementById('printButton').addEventListener('click', function() {
+            var kecamatan = encodeURIComponent($('#filter_kecamatan').val());
+            var kelurahan = encodeURIComponent($('#filter_kelurahan').val());
+            var kode_tps = encodeURIComponent($('#filter_kode_tps').val());
+
+            var url = "{{ route('perolehan-suaras.print') }}" +
+                "?kecamatan=" + kecamatan +
+                "&kelurahan=" + kelurahan +
+                "&kode_tps=" + kode_tps;
+
+            window.location.href = url;
         });
 
 

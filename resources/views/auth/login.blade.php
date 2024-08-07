@@ -22,9 +22,6 @@
     <div class="map-image">
         <img src="{{ asset('public/web/img/map.png') }}" alt="Peta Hasil Pemilu">
     </div>
-    <div class="map-info">
-        <p>SELAMAT DATANG DI SISTEM PERHITUNGAN SUARA</p>
-    </div>
 </section>
 @section("js")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 

@@ -872,3 +872,41 @@ canvas {
     font-size: 1em;
     color: #555;
 }
+
+.table-container h2 {
+    color: #ffffff; /* Darker text color for better visibility */
+}
+
+.table-header button {
+    margin-bottom: 15px;
+}
+
+/* Ensure the table headers are styled correctly */
+#datatable thead th {
+    background-color: #41054d; /* Blue background for headers */
+    color: #fff; /* White text color */
+}
+
+/* Custom styles for form labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffffff; /* Dark text color for labels */
+}
+
+/* Style input fields */
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Styling for the modal */
+.modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for modals */
+}

@@ -47,7 +47,7 @@ Route::middleware(['role:admin' , 'role:owner'])->group(function () {
     Route::resource('saksi', UserController::class);
     Route::get('saksi-json', [UserController::class, 'json']);
 
-    Route::get('perolehan-suara/print', [PerolehanSuaraController::class, 'print'])->name('perolehan-suara.print');
+    Route::get('perolehan-suaras/print', [PerolehanSuaraController::class, 'print'])->name('perolehan-suaras.print');
     Route::resource('perolehan-suara', PerolehanSuaraController::class);
     Route::get('perolehan-suara-json', [PerolehanSuaraController::class, 'json']);
 });

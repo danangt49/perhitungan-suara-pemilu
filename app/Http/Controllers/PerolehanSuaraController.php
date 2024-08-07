@@ -71,7 +71,7 @@ class PerolehanSuaraController extends Controller
     // Menyimpan data baru
     public function store(Request $request)
     {
-        if (Gate::allows('isAdmin') || Gate::allows('isSaksi')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isSaksi') || Gate::allows('isOwner')) {
             $request->validate([
                 'id_user' => 'required|integer',
                 'kode_tps' => 'required|string',
@@ -164,7 +164,7 @@ class PerolehanSuaraController extends Controller
     // print pdf
     public function print(Request $request)
     {
-        if (Gate::allows('isAdmin') || Gate::allows('isOwner') || Gate::allows('isOwner')) {
+        if (Gate::allows('isAdmin') || Gate::allows('isOwner')) {
             $kodeTps = $request->input('kode_tps');
             $kecamatan = $request->input('kecamatan');
             $kelurahan = $request->input('kelurahan');
