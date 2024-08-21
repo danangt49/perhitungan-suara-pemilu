@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // General routes
-Auth::routes(['reset' => false, 'register' => false]);
+Auth::routes(['reset' => true, 'register' => false]);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/results-json', [HomeController::class, 'getResultsJson']);

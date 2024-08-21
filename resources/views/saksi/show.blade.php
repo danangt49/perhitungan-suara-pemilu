@@ -98,18 +98,18 @@
                 <select id="agama" name="agama" required>
                     <option value="">Pilih Agama</option>
                     <option value="Islam">Islam</option>
+                    <option value="Kristen">Katolik</option>
                     <option value="Kristen">Kristen</option>
                     <option value="Hindu">Hindu</option>
                     <option value="Buddha">Buddha</option>
                     <option value="Konghucu">Konghucu</option>
-                    <option value="Lainnya">Lainnya</option>
                 </select>
 
                 <label for="jenis_kelamin">Jenis Kelamin:</label>
                 <select id="jenis_kelamin" name="jenis_kelamin" required>
                     <option value="">Pilih Jenis Kelamin</option>
                     <option value="Pria">Pria</option>
-                    <option value="Wanita">Wanita</option>
+                    <option value="Wanita">Perempuan</option>
                     <option value="Lainnya">Lainnya</option>
                 </select>
 
@@ -159,18 +159,18 @@
                 <select id="edit_agama" name="agama" required>
                     <option value="">Pilih Agama</option>
                     <option value="Islam">Islam</option>
+                    <option value="Kristen">Katolik</option>
                     <option value="Kristen">Kristen</option>
                     <option value="Hindu">Hindu</option>
                     <option value="Buddha">Buddha</option>
                     <option value="Konghucu">Konghucu</option>
-                    <option value="Lainnya">Lainnya</option>
                 </select>
 
                 <label for="edit_jenis_kelamin">Jenis Kelamin:</label>
                 <select id="edit_jenis_kelamin" name="jenis_kelamin" required>
                     <option value="">Pilih Jenis Kelamin</option>
                     <option value="Pria">Pria</option>
-                    <option value="Wanita">Wanita</option>
+                    <option value="Wanita">Perempuan</option>
                     <option value="Lainnya">Lainnya</option>
                 </select>
 

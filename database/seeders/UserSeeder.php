@@ -31,17 +31,17 @@ class UserSeeder extends Seeder
 
         User::create([
             'id' => 2,
-            'nama' => 'Andika',
-            'email' => 'andika@gmail.com',
+            'nama' => 'Erni',
+            'email' => 'erni@gmail.com',
             'alamat_tinggal' => 'Jl. Raya Janti Karang Jambe no 143, Yogyakarta, D.I.Y, 55198',
             'no_ktp' => "3330082021919110",
             'no_hp' => "0829320821920",
             'password' => bcrypt('secret'),
             'pendidikan' => 'SMA/SMK',
             'agama' => 'Islam',
-            'jenis_kelamin' => 'Pria',
+            'jenis_kelamin' => 'Perempuan',
             'role' => 'owner',
-            'partai' => 'PDI',
+            'partai' => 'Partai Perduli Perempuan',
             'dapil' => '6',
             'wilayah' => 'Sleman',
         ]);
