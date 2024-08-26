@@ -108,8 +108,8 @@
                 <label for="jenis_kelamin">Jenis Kelamin:</label>
                 <select id="jenis_kelamin" name="jenis_kelamin" required>
                     <option value="">Pilih Jenis Kelamin</option>
-                    <option value="Pria">Pria</option>
-                    <option value="Wanita">Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
                     <option value="Lainnya">Lainnya</option>
                 </select>
 
@@ -169,8 +169,8 @@
                 <label for="edit_jenis_kelamin">Jenis Kelamin:</label>
                 <select id="edit_jenis_kelamin" name="jenis_kelamin" required>
                     <option value="">Pilih Jenis Kelamin</option>
-                    <option value="Pria">Pria</option>
-                    <option value="Wanita">Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
                     <option value="Lainnya">Lainnya</option>
                 </select>
 

@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('secret'),
             'pendidikan' => 'SMA/SMK',
             'agama' => 'Islam',
-            'jenis_kelamin' => 'Pria',
+            'jenis_kelamin' => 'Laki-laki',
             'role' => 'admin'
         ]);
 

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('partai')->nullable();
             $table->enum('pendidikan', ['SD', 'SMP', 'SMA/SMK', 'Diploma', 'Sarjana', 'Pasca Sarjana']);
             $table->enum('agama', ['Islam', 'Katolik', 'Kristen', 'Hindu', 'Buddha', 'Konghucu']);
-            $table->enum('jenis_kelamin', ['Pria', 'Perempuan', 'Lainnya']);
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan', 'Lainnya']);
             $table->enum('role', ['admin', 'saksi', 'owner']);
             $table->string('dapil')->nullable();
             $table->string('wilayah')->nullable();
