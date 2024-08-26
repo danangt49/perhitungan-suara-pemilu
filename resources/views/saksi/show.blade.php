@@ -241,15 +241,14 @@
                 ]
             });
 
-            function fetchTpsOptions() {
+            function fetchTpsOptions(selectedKodeTps = null) {
                 $.ajax({
-                    url: "{{ url('/tps-options') }}",
+                    url: "{{ url('/tps-options') }}" + (selectedKodeTps ? '/' + selectedKodeTps : ''),
                     type: "GET",
                     success: function(data) {
-                        var options = '';
+                        var options = '<option value="">Pilih Kode TPS</option>';
                         data.forEach(function(tps) {
-                            options +=
-                                `<option value="${tps.kode_tps}">${tps.kode_tps}</option>`;
+                            options += `<option value="${tps.kode_tps}" ${(selectedKodeTps == tps.kode_tps) ? 'selected' : ''}>${tps.kode_tps}</option>`;
                         });
                         $('#kode_tps').html(options);
                         $('#edit_kode_tps').html(options);
@@ -263,6 +262,7 @@
                     }
                 });
             }
+
 
             $('#addDataButton').on('click', function() {
                 $('#addDataModal').show();
@@ -295,7 +295,8 @@
                         $('#edit_alamat_tinggal').val(data.alamat_tinggal);
                         $('#edit_no_ktp').val(data.no_ktp);
                         $('#edit_no_hp').val(data.no_hp);
-                        $('#edit_kode_tps').val(data.kode_tps);
+                        fetchTpsOptions(data.kode_tps);
+                        // $('#edit_kode_tps').val(data.kode_tps);
                         $('#edit_pendidikan').val(data.pendidikan);
                         $('#edit_agama').val(data.agama);
                         $('#edit_jenis_kelamin').val(data.jenis_kelamin);

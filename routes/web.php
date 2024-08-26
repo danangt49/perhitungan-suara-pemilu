@@ -28,6 +28,8 @@ Route::get('tps-options', [TpsController::class, 'tpsOptions']);
 Route::get('data-kecamatan-options', [TpsController::class, 'getKecamatanOptions']);
 Route::get('data-kelurahan-options', [TpsController::class, 'getKelurahanOptions']);
 Route::get('data-tps-options', [TpsController::class, 'getTpsOptions']);
+Route::get('tps-options/{currentKodeTps?}', [TpsController::class, 'tpsOptions']);
+Route::get('tps-options-suara/{currentKodeTps?}', [TpsController::class, 'tpsOptionsSuara']);
 Route::get('data-saksi-options', [TpsController::class, 'options']);
 
 // saksi routes

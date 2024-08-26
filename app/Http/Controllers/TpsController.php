@@ -126,9 +126,41 @@ class TpsController extends Controller
     }
 
     // Ambil data tps
-    public function tpsOptions()
+    public function tpsOptions($currentKodeTps = null)
     {
-        $tpsOptions = Tps::all(['kode_tps']);
+        $tpsOptions = Tps::leftJoin('users', 'users.kode_tps', '=', 'tps.kode_tps')
+            ->when($currentKodeTps, function ($query) use ($currentKodeTps) {
+                $query->where(function ($q) use ($currentKodeTps) {
+                    $q->whereNull('users.kode_tps')
+                      ->orWhere('users.kode_tps', $currentKodeTps);
+                });
+            }, function ($query) {
+                $query->whereNull('users.kode_tps');
+            })
+            ->select('tps.kode_tps')
+            ->distinct()
+            ->get();
+    
+        return response()->json($tpsOptions);
+    }
+    
+
+    public function tpsOptionsSuara($currentKodeTps = null)
+    {
+        $tpsOptions = Tps::leftJoin('perolehan_suaras', 'perolehan_suaras.kode_tps', '=', 'tps.kode_tps')
+            ->join('users', 'users.kode_tps', '=', 'tps.kode_tps')
+            ->when($currentKodeTps, function ($query) use ($currentKodeTps) {
+                $query->where(function ($q) use ($currentKodeTps) {
+                    $q->whereNull('perolehan_suaras.kode_tps')
+                    ->orWhere('perolehan_suaras.kode_tps', $currentKodeTps);
+                });
+            }, function ($query) {
+                $query->whereNull('perolehan_suaras.kode_tps');
+            })
+            ->select('tps.kode_tps')
+            ->distinct()
+            ->get();
+
         return response()->json($tpsOptions);
     }
 

@@ -198,15 +198,14 @@
                     'kode_tps');
             }
 
-            function fetchTpsOptions() {
+            function fetchTpsOptions(selectedKodeTps = null) {
                 $.ajax({
-                    url: "{{ url('/tps-options') }}",
+                    url: "{{ url('/tps-options-suara') }}" + (selectedKodeTps ? '/' + selectedKodeTps : ''),
                     type: "GET",
                     success: function(data) {
                         var options = '<option value="">Pilih Kode TPS</option>';
                         data.forEach(function(tps) {
-                            options +=
-                                `<option value="${tps.kode_tps}">${tps.kode_tps}</option>`;
+                            options += `<option value="${tps.kode_tps}" ${(selectedKodeTps == tps.kode_tps) ? 'selected' : ''}>${tps.kode_tps}</option>`;
                         });
                         $('#kode_tps').html(options);
                         $('#edit_kode_tps').html(options);
@@ -347,7 +346,8 @@
                     type: "GET",
                     success: function(data) {
                         $('#edit_id').val(data.id);
-                        $('#edit_kode_tps').val(data.kode_tps);
+                        // $('#edit_kode_tps').val(data.kode_tps);
+                        fetchTpsOptions(data.kode_tps);
                         $('#edit_id_user').val(data.id_user);
                         $('#edit_jumlah_suara').val(data.jumlah_suara);
                         $('#edit_catatan').val(data.catatan);
